@@ -1,0 +1,27 @@
+<div class="modal-header">
+  <h4 class="modal-title">Create Product</h4>
+  <button type="button" class="close" (click)="dismiss()">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div class="modal-body">
+  <form>
+    <div class="form-group">
+      <label> WareHouseId Product </label>
+      <input class="form-control" type="text" placeholder="WareHouseId" />
+    </div>
+    <div class="form-group">
+      <label>TypeId Product </label>
+      <input class="form-control" type="text" placeholder="TypeId" />
+    </div>
+    <div class="form-group">
+      <label>Title Product </label>
+      <input class="form-control" type="text" placeholder="Title" />
+    </div>
+  </form>
+</div>
+<div class="modal-footer">
+  <button type="button" class="btn btn-outline-dark" (click)="close()">
+    Save
+  </button>
+</div>

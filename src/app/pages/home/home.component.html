@@ -1,0 +1,122 @@
+<div class="post-product pointer blue my-5" (click)="post(modalPost)">
+  Create new product
+</div>
+
+<ul>
+  <ng-container *ngFor="let product of products">
+    <li class="flex">
+      <p class="mr-5">{{ product.title }}</p>
+      <div class="flex">
+        <p class="pointer blue mr-2" (click)="updateModal(modal, product)">
+          Update
+        </p>
+        <p class="pointer red" (click)="delete(product)">Delete</p>
+      </div>
+    </li>
+  </ng-container>
+</ul>
+
+<ul class="pagination">
+  <ng-container *ngFor="let page of pages">
+    <li (click)="clickPage(page)">{{ page }}</li>
+  </ng-container>
+</ul>
+
+<ng-template #modalPost let-postModal>
+  <div class="modal-header">
+    <h4 class="modal-title">Create Product</h4>
+    <button type="button" class="close" (click)="postModal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="createProduct" (ngSubmit)="onSubmit()">
+      <p class="red">{{ messagePost }}</p>
+      <div class="form-group">
+        <label> WareHouseId Product </label>
+        <input
+          formControlName="WareHouseId"
+          class="form-control"
+          type="text"
+          placeholder="WareHouseId"
+        />
+      </div>
+      <div class="form-group">
+        <label>TypeId Product </label>
+        <input
+          formControlName="TypeId"
+          class="form-control"
+          type="text"
+          placeholder="TypeId"
+        />
+      </div>
+      <div class="form-group">
+        <label>Title Product </label>
+        <input
+          formControlName="Title"
+          class="form-control"
+          type="text"
+          placeholder="Title"
+        />
+      </div>
+      <button type="button" class="btn btn-outline-dark" (click)="onSubmit()">
+        Save
+      </button>
+    </form>
+  </div>
+</ng-template>
+
+<ng-template #modal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">Update</h4>
+    <button type="button" class="close" (click)="modal.dismiss()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="updateProduct" (ngSubmit)="onUpdate()">
+      <p class="red">{{ messageUpdate }}</p>
+      <div class="form-group">
+        <label> Id Product </label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="Id"
+          placeholder="Id"
+        />
+      </div>
+      <div class="form-group">
+        <label> WareHouseId Product </label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="WareHouseId"
+          placeholder="WareHouseId"
+        />
+      </div>
+      <div class="form-group">
+        <label>TypeId Product </label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="TypeId"
+          placeholder="TypeId"
+        />
+      </div>
+      <div class="form-group">
+        <label>Title Product </label>
+        <input
+          class="form-control"
+          type="text"
+          formControlName="Title"
+          placeholder="Title"
+        />
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="onUpdate()">
+          Save
+        </button>
+      </div>
+    </form>
+  </div>
+</ng-template>

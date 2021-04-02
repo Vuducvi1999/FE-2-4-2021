@@ -1,0 +1,33 @@
+* {
+  list-style-type: none;
+}
+
+.pagination {
+  display: flex;
+}
+
+.pagination li {
+  padding: 0.3rem;
+  background-color: aqua;
+  margin-right: 0.2rem;
+  cursor: pointer;
+  &:hover {
+    background-color: blue;
+    color: white;
+  }
+}
+
+.flex {
+  display: flex;
+}
+.pointer {
+  cursor: pointer;
+}
+
+.blue {
+  color: blue;
+}
+
+.red {
+  color: red;
+}
